@@ -2,6 +2,8 @@ import React from 'react';
 
 import Api from '../util/Api';
 
+import { useHistory } from "react-router-dom";
+
 class RegisterPage extends React.Component {
 
   constructor(props) {
@@ -30,9 +32,11 @@ class RegisterPage extends React.Component {
       localStorage.setItem("last_name", response.last_name);
       localStorage.setItem("roles", JSON.stringify(response.roles));
 
-      window.location = '/classes';
-
       this.setState({ errors: null });
+
+      const history = useHistory();
+
+      history.push('/classes');
 
     }, (errors) => {
       this.setState({ errors: errors.message });

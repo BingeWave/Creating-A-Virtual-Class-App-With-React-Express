@@ -5,7 +5,7 @@ module.exports = {
 
     getDistributorToken : function(){
 
-        const url = 'http://bw.bingewave.local/auth/getDistributorAccessToken';
+        const url = 'https://bw.bingewave.com/auth/getDistributorAccessToken';
 
         let key = process.env.BW_CONSUMER_KEY;
 
@@ -22,7 +22,7 @@ module.exports = {
     },
     login : function(data, token){
 
-        const url = 'http://bw.bingewave.local/auth/login';
+        const url = 'https://bw.bingewave.com/auth/login';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -30,7 +30,7 @@ module.exports = {
     },
     register : function(data, token){
 
-        const url = 'http://bw.bingewave.local/auth/register';
+        const url = 'https://bw.bingewave.com/auth/register';
 
         const distributor_id = process.env.BW_DISTRIBUTOR_ID;
 
@@ -44,7 +44,7 @@ module.exports = {
 
         const distributor_id = process.env.BW_DISTRIBUTOR_ID;
 
-        const url = 'http://bw.bingewave.local/accounts?distributor_id=' + distributor_id;
+        const url = 'https://bw.bingewave.com/accounts?distributor_id=' + distributor_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -52,7 +52,7 @@ module.exports = {
     },
     getAccount : function(id, token){
 
-        const url = 'http://bw.bingewave.local/accounts/' + id;
+        const url = 'https://bw.bingewave.com/accounts/' + id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -60,7 +60,7 @@ module.exports = {
     },
     updateAccount : function(data, token){
 
-        const url = 'http://bw.bingewave.local/accounts';
+        const url = 'https://bw.bingewave.com/accounts';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'PUT', data, resolve, reject, token);
@@ -68,7 +68,7 @@ module.exports = {
     },
     getAccountTickets : function(id, token){
 
-        const url = 'http://bw.bingewave.local/accounts/' + id + '/tickets';
+        const url = 'https://bw.bingewave.com/accounts/' + id + '/tickets';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -78,7 +78,7 @@ module.exports = {
 
         const distributor_id = process.env.BW_DISTRIBUTOR_ID;
 
-        const url = 'http://bw.bingewave.local/distributors/' + distributor_id + '/setUserToRole';
+        const url = 'https://bw.bingewave.com/distributors/' + distributor_id + '/setUserToRole';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -88,7 +88,7 @@ module.exports = {
 
         const distributor_id = process.env.BW_DISTRIBUTOR_ID;
 
-        const url = 'http://bw.bingewave.local/distributors/' + distributor_id + '/removeUserFromRole';
+        const url = 'https://bw.bingewave.com/distributors/' + distributor_id + '/removeUserFromRole';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -98,7 +98,7 @@ module.exports = {
 
         const distributor_id = process.env.BW_DISTRIBUTOR_ID;
 
-        const url = 'http://bw.bingewave.local/cohorts?distributor_id=' + distributor_id;
+        const url = 'https://bw.bingewave.com/cohorts?distributor_id=' + distributor_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -106,7 +106,7 @@ module.exports = {
     },
     getCohort : function(id, token){
 
-        const url = 'http://bw.bingewave.local/cohorts/' + id;
+        const url = 'https://bw.bingewave.com/cohorts/' + id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -114,7 +114,7 @@ module.exports = {
     },
     createCohort : function(data, token){
 
-        const url = 'http://bw.bingewave.local/cohorts';
+        const url = 'https://bw.bingewave.com/cohorts';
 
         const distributor_id = process.env.BW_DISTRIBUTOR_ID;
 
@@ -126,7 +126,7 @@ module.exports = {
     },
     updateCohort : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/cohorts/' + id;
+        const url = 'https://bw.bingewave.com/cohorts/' + id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'PUT', data, resolve, reject, token);
@@ -134,7 +134,7 @@ module.exports = {
     },
     deleteCohort : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/cohorts/' + id ;
+        const url = 'https://bw.bingewave.com/cohorts/' + id ;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'DELETE', data, resolve, reject, token);
@@ -142,7 +142,7 @@ module.exports = {
     },
     addUserToCohort : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/cohorts/' + id +'/addAccount' ;
+        const url = 'https://bw.bingewave.com/cohorts/' + id +'/addAccount' ;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -150,7 +150,7 @@ module.exports = {
     },
     removeUserFromCohort : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/cohorts/' + id +'/removeAccount' ;
+        const url = 'https://bw.bingewave.com/cohorts/' + id +'/removeAccount' ;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -158,7 +158,7 @@ module.exports = {
     },
     addClassToCohort : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/cohorts/' + id +'/addEvent' ;
+        const url = 'https://bw.bingewave.com/cohorts/' + id +'/addEvent' ;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -166,7 +166,7 @@ module.exports = {
     },
     removeClassFromCohort : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/cohorts/' + id +'/removeEvent' ;
+        const url = 'https://bw.bingewave.com/cohorts/' + id +'/removeEvent' ;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -177,7 +177,7 @@ module.exports = {
 
         const distributor_id = process.env.BW_DISTRIBUTOR_ID;
 
-        const url = 'http://bw.bingewave.local/events?distributor_id=' + distributor_id;
+        const url = 'https://bw.bingewave.com/events?distributor_id=' + distributor_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', data, resolve, reject, token);
@@ -185,7 +185,7 @@ module.exports = {
     },
     getClass : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + id;
+        const url = 'https://bw.bingewave.com/events/' + id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', data, resolve, reject, token);
@@ -193,7 +193,7 @@ module.exports = {
     },
     createClass : function(data, token){
 
-        const url = 'http://bw.bingewave.local/events';
+        const url = 'https://bw.bingewave.com/events';
 
         const distributor_id = process.env.BW_DISTRIBUTOR_ID;
 
@@ -205,7 +205,7 @@ module.exports = {
     },
     updateClass : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + id;
+        const url = 'https://bw.bingewave.com/events/' + id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'PUT', data, resolve, reject, token);
@@ -213,7 +213,7 @@ module.exports = {
     },
     cancelClass : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + id + '/cancel';
+        const url = 'https://bw.bingewave.com/events/' + id + '/cancel';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'PUT', data, resolve, reject, token);
@@ -221,7 +221,7 @@ module.exports = {
     },
     registerForClass : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + id + '/register';
+        const url = 'https://bw.bingewave.com/events/' + id + '/register';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -229,7 +229,7 @@ module.exports = {
     },
     hasTicketForClass : function(class_id, user_id, token){
 
-        const url = 'http://bw.bingewave.local/events/' + class_id + '/hasTicket/' + user_id;
+        const url = 'https://bw.bingewave.com/events/' + class_id + '/hasTicket/' + user_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -238,21 +238,21 @@ module.exports = {
     },
     addUserForClass : function(id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + id + '/addUserToAttendees';
+        const url = 'https://bw.bingewave.com/events/' + id + '/addUserToAttendees';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
         })
     },
     sendOnScreenMessage(id, data, token){
-        const url = 'http://bw.bingewave.local/events/' + id + '/sendOnscreenMessage';
+        const url = 'https://bw.bingewave.com/events/' + id + '/sendOnscreenMessage';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
         })
     },
     sendOnScreenPoll(id, data, token){
-        const url = 'http://bw.bingewave.local/events/' + id + '/sendOnscreenPoll';
+        const url = 'https://bw.bingewave.com/events/' + id + '/sendOnscreenPoll';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -262,7 +262,7 @@ module.exports = {
 
         const distributor_id = process.env.BW_DISTRIBUTOR_ID;
 
-        const url = 'http://bw.bingewave.local/events/' + event_id + '/groups?distributor_id=' + distributor_id;
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/groups?distributor_id=' + distributor_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -270,7 +270,7 @@ module.exports = {
     }, 
     createMaterial : function(event_id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + event_id + '/materials';
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/materials';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -278,7 +278,7 @@ module.exports = {
     },
     updateMaterial : function(event_id, material_id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + event_id + '/materials/' + material_id;
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/materials/' + material_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'PUT', data, resolve, reject, token);
@@ -286,7 +286,7 @@ module.exports = {
     },
     deleteMaterial : function(event_id, material_id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + event_id + '/materials/' + material_id;
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/materials/' + material_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'DELETE', data, resolve, reject, token);
@@ -296,7 +296,7 @@ module.exports = {
 
         const distributor_id = process.env.BW_DISTRIBUTOR_ID;
 
-        const url = 'http://bw.bingewave.local/events/' + event_id + '/groups?distributor_id=' + distributor_id;
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/groups?distributor_id=' + distributor_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -304,7 +304,7 @@ module.exports = {
     },
     createGroup : function(event_id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + event_id + '/groups';
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/groups';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -312,7 +312,7 @@ module.exports = {
     },
     updateGroup : function(event_id, material_id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + event_id + '/groups/' + material_id;
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/groups/' + material_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'PUT', data, resolve, reject, token);
@@ -320,7 +320,7 @@ module.exports = {
     },
     deleteGroup : function(event_id, material_id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + event_id + '/groups/' + material_id;
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/groups/' + material_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'DELETE', data, resolve, reject, token);
@@ -328,7 +328,7 @@ module.exports = {
     },
     createPoll : function(event_id, data, token){
 
-        const url = 'http://bw.bingewave.local/events/' + event_id + '/groups';
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/groups';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);

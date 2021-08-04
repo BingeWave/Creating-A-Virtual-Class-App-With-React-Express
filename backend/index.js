@@ -545,17 +545,21 @@ async function retrieveDistributorToken(response){
         return distributorToken;
     }
 
-    let tokenData = await API.getDistributorToken();
+    try {
+        let tokenData = await API.getDistributorToken();
 
-    if(tokenData.status == 'success'){
+        if(tokenData.status == 'success'){
 
-        let token = tokenData.data.auth_token;
+            let token = tokenData.data.auth_token;
 
-        distributorToken = token;
+            distributorToken = token;
 
-        return token;
-    } else {
-        Response.successResponse(response, tokenData);
+            return token;
+        } else {
+            Response.successResponse(response, tokenData);
+        }
+    } catch (error) {
+        Response.errorResponse(response, 401, error)
     }
 
 }
