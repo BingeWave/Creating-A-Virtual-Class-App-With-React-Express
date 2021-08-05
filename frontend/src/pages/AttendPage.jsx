@@ -33,7 +33,7 @@ class AttendPage extends React.Component {
         this.setState({ event: data }, () => {
 
           //ensures the widgets load after the state is set
-          window.BingewaveConnector.init({ auth_control: window.localStorage.getItem("auth_token") });
+          window.BingewaveConnector.init({ auth_token: window.localStorage.getItem("auth_token") });
         });
 
       }, (errors) => {

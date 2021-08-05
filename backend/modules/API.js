@@ -216,7 +216,7 @@ module.exports = {
         const url = 'https://bw.bingewave.com/events/' + id + '/cancel';
 
         return new Promise((resolve, reject) => {
-            this._sendRequest(url, 'PUT', data, resolve, reject, token);
+            this._sendRequest(url, 'POST', data, resolve, reject, token);
         })
     },
     registerForClass : function(id, data, token){
