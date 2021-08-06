@@ -8,7 +8,7 @@ import AuthControl from '../components/AuthControl';
 
 import CohortForm from '../forms/CohortForm';
 
-import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router";
  
 class CreateCohortPage extends BasePage {
 
@@ -33,9 +33,7 @@ class CreateCohortPage extends BasePage {
     
     API.createCohort(this.state, (data) => {
 
-      const history = useHistory();
-
-      history.push('/cohorts/view/'+ data.id);
+      this.props.history.push('/cohorts/view/'+ data.id);
 
     }, (errors) => {
         this.setState({errors: errors.message});
@@ -65,4 +63,4 @@ class CreateCohortPage extends BasePage {
    }
  }
  
-export default CreateCohortPage ;
+ export default withRouter(CreateCohortPage);

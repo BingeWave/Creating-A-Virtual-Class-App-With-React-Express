@@ -10,8 +10,6 @@ import ClassForm from '../forms/ClassForm';
 
 import { withRouter } from "react-router";
 
-import { useHistory } from "react-router-dom";
-
 
 class UpdateClassPage extends BasePage {
 
@@ -50,9 +48,7 @@ class UpdateClassPage extends BasePage {
 
     API.updateClass(id, this.state, (data) => {
 
-      const history = useHistory();
-
-      history.push('/classes/view/' + data.id);
+      this.props.history.push('/classes/view/' + data.id);
 
     }, (errors) => {
       this.setState({ errors: errors.message });

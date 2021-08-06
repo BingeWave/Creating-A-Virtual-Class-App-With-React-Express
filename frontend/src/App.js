@@ -16,8 +16,6 @@ import AdminCohortPage from './pages/AdminCohortPage';
 import AdminUserPage from './pages/AdminUserPage';
 import AttendPage from './pages/AttendPage';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 
 import {
   BrowserRouter as Router,
@@ -59,7 +57,7 @@ function App() {
 
                 <a className="btn btn-info mr-2" href="/register">Register</a>
 
-                <a className="btn btn-info mr-2" href="/users/update"><FontAwesomeIcon icon={["fas", "user"]} /> Profile</a>
+                <a className="btn btn-info mr-2" href="/users/update">Profile</a>
 
               </form>
             </div>

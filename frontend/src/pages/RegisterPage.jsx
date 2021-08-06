@@ -2,7 +2,7 @@ import React from 'react';
 
 import Api from '../util/Api';
 
-import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router";
 
 class RegisterPage extends React.Component {
 
@@ -34,9 +34,7 @@ class RegisterPage extends React.Component {
 
       this.setState({ errors: null });
 
-      const history = useHistory();
-
-      history.push('/classes');
+      this.props.history.push('/classes');
 
     }, (errors) => {
       this.setState({ errors: errors.message });
@@ -125,4 +123,4 @@ class RegisterPage extends React.Component {
   }
 }
 
-export default RegisterPage;
+export default withRouter(RegisterPage);

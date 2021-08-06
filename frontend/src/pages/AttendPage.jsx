@@ -6,8 +6,6 @@ import AuthControl from '../components/AuthControl';
 
 import { withRouter } from "react-router";
 
-import { useHistory } from "react-router-dom";
-
 class AttendPage extends React.Component {
 
   constructor(props) {
@@ -44,9 +42,7 @@ class AttendPage extends React.Component {
 
       alert("You must have signed up to class to access it. Please register");
 
-      const history = useHistory();
-
-      history.push('/classes/view/' + id);
+      this.props.history.push('/classes/view/' + id);
 
     })
 

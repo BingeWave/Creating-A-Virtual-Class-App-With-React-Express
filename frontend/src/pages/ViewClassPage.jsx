@@ -45,7 +45,7 @@ class ViewClassPage extends React.Component {
 
     API.registerForClass(id, this.state.registrationData, (data) => {
 
-      window.location = '/classes/attend/' + id;
+      this.props.history.push('/classes/attend/' + id);
 
     }, (errors) => {
       this.setState({ registrationErrors: errors.message });

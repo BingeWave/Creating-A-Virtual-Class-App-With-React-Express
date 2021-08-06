@@ -10,8 +10,6 @@ import CohortForm from '../forms/CohortForm';
 
 import { withRouter } from "react-router";
 
-import { useHistory } from "react-router-dom";
-
 
 class UpdateCohortPage extends BasePage {
 
@@ -50,9 +48,7 @@ class UpdateCohortPage extends BasePage {
 
     API.updateCohort(id, this.state, (data) => {
 
-      const history = useHistory();
-
-      history.push('/cohorts/view/' + data.id);
+      this.props.history.push('/cohorts/view/' + data.id);
 
     }, (errors) => {
       this.setState({ errors: errors.message });

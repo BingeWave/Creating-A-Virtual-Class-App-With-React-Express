@@ -8,7 +8,7 @@ import AuthControl from '../components/AuthControl';
 
 import ClassForm from '../forms/ClassCreationForm';
 
-import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router";
  
 class CreateClassesPage extends BasePage {
 
@@ -39,9 +39,7 @@ class CreateClassesPage extends BasePage {
     
     API.createClass(this.state, (data) => {
 
-      const history = useHistory();
-
-      history.push('/classes/view/' + data.id);
+      this.props.history.push('/classes/view/' + data.id);
 
     }, (errors) => {
       this.setState({errors: errors.message});
@@ -71,4 +69,4 @@ class CreateClassesPage extends BasePage {
    }
  }
  
-export default CreateClassesPage ;
+ export default withRouter(CreateClassesPage);

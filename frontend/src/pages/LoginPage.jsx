@@ -2,7 +2,7 @@ import React from 'react';
 
 import Api from '../util/Api';
 
-import { useHistory } from "react-router-dom";
+import { withRouter } from "react-router";
 
 class LoginPage extends React.Component {
 
@@ -32,9 +32,7 @@ class LoginPage extends React.Component {
 
       this.setState({ errors: null });
 
-      const history = useHistory();
-
-      history.push('/classes');
+      this.props.history.push('/classes')
 
     }, (errors) => {
       this.setState({ errors: errors.message });
@@ -55,7 +53,7 @@ class LoginPage extends React.Component {
         <h2 className="text-center">Login</h2>
         <div>
           <div className="mb-3">
-            <label for="email" className="form-label">
+            <label htmlFor="email" className="form-label">
               Email address
             </label>
             <input
@@ -67,7 +65,7 @@ class LoginPage extends React.Component {
             />
           </div>
           <div className="mb-3">
-            <label for="password" className="form-label">
+            <label htmlFor="password" className="form-label">
               Password
             </label>
             <input
@@ -91,4 +89,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);
