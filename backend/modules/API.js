@@ -21,9 +21,9 @@ module.exports = {
 
         const url = 'https://bw.bingewave.com/auth/register';
 
-        const distributor_id = process.env.BW_ORGANIZER_ID;
+        const organizer_id = process.env.BW_ORGANIZER_ID;
 
-        data['distributor_id'] = distributor_id;
+        data['organizer_id'] = organizer_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -31,9 +31,9 @@ module.exports = {
     },
     getAccounts : function(token){
 
-        const distributor_id = process.env.BW_ORGANIZER_ID;
+        const organizer_id = process.env.BW_ORGANIZER_ID;
 
-        const url = 'https://bw.bingewave.com/accounts?distributor_id=' + distributor_id;
+        const url = 'https://bw.bingewave.com/accounts?organizer_id=' + organizer_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -65,9 +65,9 @@ module.exports = {
     },
     setUserToRole : function(data, token){
 
-        const distributor_id = process.env.BW_ORGANIZER_ID;
+        const organizer_id = process.env.BW_ORGANIZER_ID;
 
-        const url = 'https://bw.bingewave.com/distributors/' + distributor_id + '/setUserToRole';
+        const url = 'https://bw.bingewave.com/organizers/' + organizer_id + '/setUserToRole';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -75,9 +75,9 @@ module.exports = {
     },
     removeUserFromRole : function(data, token){
 
-        const distributor_id = process.env.BW_ORGANIZER_ID;
+        const organizer_id = process.env.BW_ORGANIZER_ID;
 
-        const url = 'https://bw.bingewave.com/distributors/' + distributor_id + '/removeUserFromRole';
+        const url = 'https://bw.bingewave.com/organizers/' + organizer_id + '/removeUserFromRole';
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -85,9 +85,9 @@ module.exports = {
     },
     getCohorts : function(token){
 
-        const distributor_id = process.env.BW_ORGANIZER_ID;
+        const organizer_id = process.env.BW_ORGANIZER_ID;
 
-        const url = 'https://bw.bingewave.com/cohorts?distributor_id=' + distributor_id;
+        const url = 'https://bw.bingewave.com/cohorts?organizer_id=' + organizer_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -105,9 +105,9 @@ module.exports = {
 
         const url = 'https://bw.bingewave.com/cohorts';
 
-        const distributor_id = process.env.BW_ORGANIZER_ID;
+        const organizer_id = process.env.BW_ORGANIZER_ID;
 
-        data['distributor_id'] = distributor_id;
+        data['organizer_id'] = organizer_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -164,9 +164,9 @@ module.exports = {
 
     getClasses : function(data, token){
 
-        const distributor_id = process.env.BW_ORGANIZER_ID;
+        const organizer_id = process.env.BW_ORGANIZER_ID;
 
-        const url = 'https://bw.bingewave.com/events?distributor_id=' + distributor_id;
+        const url = 'https://bw.bingewave.com/events?organizer_id=' + organizer_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', data, resolve, reject, token);
@@ -184,9 +184,9 @@ module.exports = {
 
         const url = 'https://bw.bingewave.com/events';
 
-        const distributor_id = process.env.BW_ORGANIZER_ID;
+        const organizer_id = process.env.BW_ORGANIZER_ID;
 
-        data['distributor_id'] = distributor_id;
+        data['organizer_id'] = organizer_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'POST', data, resolve, reject, token);
@@ -249,9 +249,9 @@ module.exports = {
     },
     listMaterials : function(event_id, token){
 
-        const distributor_id = process.env.BW_ORGANIZER_ID;
+        const organizer_id = process.env.BW_ORGANIZER_ID;
 
-        const url = 'https://bw.bingewave.com/events/' + event_id + '/groups?distributor_id=' + distributor_id;
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/groups?organizer_id=' + organizer_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);
@@ -283,9 +283,9 @@ module.exports = {
     },
     listGroups : function(event_id, token){
 
-        const distributor_id = process.env.BW_ORGANIZER_ID;
+        const organizer_id = process.env.BW_ORGANIZER_ID;
 
-        const url = 'https://bw.bingewave.com/events/' + event_id + '/groups?distributor_id=' + distributor_id;
+        const url = 'https://bw.bingewave.com/events/' + event_id + '/groups?organizer_id=' + organizer_id;
 
         return new Promise((resolve, reject) => {
             this._sendRequest(url, 'GET', null, resolve, reject, token);

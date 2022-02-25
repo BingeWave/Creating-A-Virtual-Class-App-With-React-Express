@@ -22,7 +22,7 @@ To set this application up, do the following:
 2. Open up two tabs at the root directory
 3. In one tab, go inside the backend folder and run `npm install`
 4. In the other tab, go in the the frontend folder and run `npm install`
-5. In the backend folder .env, enter the required fields. To retrieve the distributor id, key and secret, visit [https://developers.bingewave.com/distributors](https://developers.bingewave.com/distributors) and follow the directions in the token section. Or read the first tutorial.
+5. In the backend folder .env, enter the required fields. To retrieve the organizer id, key and secret, visit [https://developers.bingewave.com/organizers](https://developers.bingewave.com/organizers) and follow the directions in the token section. Or read the first tutorial.
 6. In the backend folder in one tab, run `node index.js` to start the backend
 7. In the frontend folder in the other tab, run `npm start` to start React.
 8. Play around!
