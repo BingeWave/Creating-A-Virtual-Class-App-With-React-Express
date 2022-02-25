@@ -3,22 +3,11 @@ const request = require('request');
 
 module.exports = {
 
-    getDistributorToken : function(){
+    getOrganizerToken : function(){
 
-        const url = 'https://bw.bingewave.com/auth/getDistributorAccessToken';
+        let token = process.env.BW_ORGANIZER_TOKEN;
 
-        let key = process.env.BW_CONSUMER_KEY;
-
-        let secret = process.env.BW_CONSUMER_SECRET;
-
-        let data = {
-            key : key,
-            secret : secret
-        };
-
-        return new Promise((resolve, reject) => {
-            this._sendRequest(url, 'POST', data, resolve, reject);
-        })
+        return token;
     },
     login : function(data, token){
 
@@ -32,7 +21,7 @@ module.exports = {
 
         const url = 'https://bw.bingewave.com/auth/register';
 
-        const distributor_id = process.env.BW_DISTRIBUTOR_ID;
+        const distributor_id = process.env.BW_ORGANIZER_ID;
 
         data['distributor_id'] = distributor_id;
 
@@ -42,7 +31,7 @@ module.exports = {
     },
     getAccounts : function(token){
 
-        const distributor_id = process.env.BW_DISTRIBUTOR_ID;
+        const distributor_id = process.env.BW_ORGANIZER_ID;
 
         const url = 'https://bw.bingewave.com/accounts?distributor_id=' + distributor_id;
 
@@ -76,7 +65,7 @@ module.exports = {
     },
     setUserToRole : function(data, token){
 
-        const distributor_id = process.env.BW_DISTRIBUTOR_ID;
+        const distributor_id = process.env.BW_ORGANIZER_ID;
 
         const url = 'https://bw.bingewave.com/distributors/' + distributor_id + '/setUserToRole';
 
@@ -86,7 +75,7 @@ module.exports = {
     },
     removeUserFromRole : function(data, token){
 
-        const distributor_id = process.env.BW_DISTRIBUTOR_ID;
+        const distributor_id = process.env.BW_ORGANIZER_ID;
 
         const url = 'https://bw.bingewave.com/distributors/' + distributor_id + '/removeUserFromRole';
 
@@ -96,7 +85,7 @@ module.exports = {
     },
     getCohorts : function(token){
 
-        const distributor_id = process.env.BW_DISTRIBUTOR_ID;
+        const distributor_id = process.env.BW_ORGANIZER_ID;
 
         const url = 'https://bw.bingewave.com/cohorts?distributor_id=' + distributor_id;
 
@@ -116,7 +105,7 @@ module.exports = {
 
         const url = 'https://bw.bingewave.com/cohorts';
 
-        const distributor_id = process.env.BW_DISTRIBUTOR_ID;
+        const distributor_id = process.env.BW_ORGANIZER_ID;
 
         data['distributor_id'] = distributor_id;
 
@@ -175,7 +164,7 @@ module.exports = {
 
     getClasses : function(data, token){
 
-        const distributor_id = process.env.BW_DISTRIBUTOR_ID;
+        const distributor_id = process.env.BW_ORGANIZER_ID;
 
         const url = 'https://bw.bingewave.com/events?distributor_id=' + distributor_id;
 
@@ -195,7 +184,7 @@ module.exports = {
 
         const url = 'https://bw.bingewave.com/events';
 
-        const distributor_id = process.env.BW_DISTRIBUTOR_ID;
+        const distributor_id = process.env.BW_ORGANIZER_ID;
 
         data['distributor_id'] = distributor_id;
 
@@ -260,7 +249,7 @@ module.exports = {
     },
     listMaterials : function(event_id, token){
 
-        const distributor_id = process.env.BW_DISTRIBUTOR_ID;
+        const distributor_id = process.env.BW_ORGANIZER_ID;
 
         const url = 'https://bw.bingewave.com/events/' + event_id + '/groups?distributor_id=' + distributor_id;
 
@@ -294,7 +283,7 @@ module.exports = {
     },
     listGroups : function(event_id, token){
 
-        const distributor_id = process.env.BW_DISTRIBUTOR_ID;
+        const distributor_id = process.env.BW_ORGANIZER_ID;
 
         const url = 'https://bw.bingewave.com/events/' + event_id + '/groups?distributor_id=' + distributor_id;
 

@@ -20,7 +20,7 @@ dotenv.config();
 
 app.get('/', (req, res) => {
 
-    API.getDistributorToken()
+    API.getOrganizerToken()
     .then(response => {
         Response.successResponse(response);
     })
@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 app.post('/register', async (req, res) => {
     let data = req.body;
 
-    let token = await retrieveDistributorToken(res);
+    let token = API.getOrganizerToken();
 
     API.register(data, token)
     .then(response => {
@@ -47,7 +47,7 @@ app.post('/login', async (req, res) => {
 
     let data = req.body;
 
-    let token = await retrieveDistributorToken(res);
+    let token = API.getOrganizerToken();
 
     API.login(data, token)
     .then(response => {
@@ -152,7 +152,7 @@ app.get('/cohorts', async (req, res) => {
 
     if(!token|| token === 'null'){
 
-        token = await retrieveDistributorToken(res);
+        token = API.getOrganizerToken();
     }
 
     API.getCohorts(token)
@@ -172,7 +172,7 @@ app.get('/cohorts/:id', async (req, res) => {
 
     if(!token || token === 'null'){
 
-        token = await retrieveDistributorToken(res);
+        token = API.getOrganizerToken();
     }
 
     API.getCohort(id, token)
@@ -307,7 +307,7 @@ app.get('/classes', async (req, res) => {
 
     if(!token || token === 'null'){
 
-        token = await retrieveDistributorToken(res);
+        token = API.getOrganizerToken();
 
     }
     
@@ -330,7 +330,7 @@ app.get('/classes/:id', async (req, res) => {
 
     if(!token || token === 'null'){
 
-        token = await retrieveDistributorToken(res);
+        token = API.getOrganizerToken();
     }
 
     API.getClass(id, null, token)
@@ -396,7 +396,7 @@ app.post('/classes/:id/register', async (req, res) => {
 
     if(!token || token === 'null'){
 
-         token = await retrieveDistributorToken(res);
+         token = API.getOrganizerToken();
 
     }
 
@@ -520,7 +520,7 @@ app.post('/registerForCohort', async (req, res) => {
 
     let data = req.body;
 
-    let token = await retrieveDistributorToken(res);
+    let token = API.getOrganizerToken();
 
     API.addUserToCohort(data, token)
     .then(response => {
@@ -535,31 +535,4 @@ app.post('/registerForCohort', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example class app listening at http://localhost:${port}`)
-})
-
-var distributorToken = null;
-
-async function retrieveDistributorToken(response){
-
-    if(distributorToken){
-        return distributorToken;
-    }
-
-    try {
-        let tokenData = await API.getDistributorToken();
-
-        if(tokenData.status == 'success'){
-
-            let token = tokenData.data.auth_token;
-
-            distributorToken = token;
-
-            return token;
-        } else {
-            Response.successResponse(response, tokenData);
-        }
-    } catch (error) {
-        Response.errorResponse(response, 401, error)
-    }
-
-}
+});
